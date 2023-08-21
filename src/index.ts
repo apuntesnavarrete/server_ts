@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import campeones from './routes/campeones'
 
 
@@ -10,12 +10,12 @@ const app = express();
 // Configurar el puerto en el que el servidor escuchará
 const port = 3007;
 
-app.use('/campeones', campeones)
+app.use('/', campeones)
 
 // Definir una ruta y su respuesta
-app.get('/api', (_req: Request, res: Response) => {
-    res.json({ 'users' : ["userOne", "usert", "userth","newuser"] });
-  });
+
+
+
 
 // Iniciar el servidor
 app.listen(port, () => {

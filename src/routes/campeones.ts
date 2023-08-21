@@ -1,15 +1,20 @@
 import express, { Request, Response } from 'express';
+const {pool} = require('../../database');
 
 const router = express.Router()
 
-router.get('/', (_req: Request, res: Response) => {
-    res.json({ 'users' : ["campeon1", "campeon 2", "c3","c4"] });
-  });
+
+router.get('/api', async function(_req: Request, res: Response) {
+  res.json({saludo:"hola"})
+});
+
+router.get('/api/campeones', async function(_req: Request, res: Response) {
+  let consulta = "SELECT * FROM historial_campeones ORDER BY `fecha_campeonato` DESC LIMIT 1000"
+ let vista = await pool.query(consulta)
+  res.send(vista)
+});
 
 
   
-router.post('/', (_req: Request, res: Response) => {
-    res.json({ 'users' : ["campeon1", "campeon 2", "c3","c4"] });
-  });
 
   export default router
