@@ -1,5 +1,10 @@
 const mysql = require('mysql2');
-require('dotenv').config();
+import path from 'path';
+
+import dotenv from 'dotenv';
+const envPath = path.resolve(__dirname, '.env');
+dotenv.config({ path: envPath });
+
 /*
 const setupModels = require('../db/models/user.model')
 */
@@ -16,6 +21,8 @@ const pool = mysql.createPool({
 pool.getConnection((error: any, connection: { release: () => void; }) => {
   if (error) {
     console.error('Error al conectarse a la base de datos: ', error);
+    console.log(process.env); // Verifica si las variables se han cargado
+
     return;
   }
   console.log('Conexión exitosa a la base de datos rds aws');

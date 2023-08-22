@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-const {pool} = require('../../database');
+const {pool} = require('../database');
 
 const router = express.Router()
 

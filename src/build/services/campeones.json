@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Real Madrid",
+        "liga": "La Liga"
+    },
+    {
+        "nombre": "FC Barcelona",
+        "liga": "La Liga"
+    },
+    {
+        "nombre": "Bayern de Múnich",
+        "liga": "Bundesliga"
+    }
+]
