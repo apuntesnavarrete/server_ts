@@ -74,6 +74,32 @@ router.get('/api/campeones/jugadores/:id', async (req: Request, res: Response) =
   }
 });
 
+router.get('/api/campeones/mejores_jugadores/:id', async (req: Request, res: Response) => {
+  // Obtención del id del campeón
+  //pamars recibe como string y hay que convertirlo en number.
+  const id: number = parseInt(req.params.id, 10);
+
+  // Validación del id del campeón
+  if (!Number.isInteger(id) || id < 1) {
+    res.status(400).send('El id del campeónato debe ser un número entero mayor que 0');
+    return;
+  }
+
+  // Consulta SQL para buscar el campeón
+  const consulta: string = `SELECT * FROM Jugadores_mejores_view WHERE Id_campeonato = ${id}`;
+
+  // Ejecución de la consulta
+  const resultados: any[] = await pool.query(consulta);
+
+
+  // Envío de la respuesta
+  if (resultados.length > 0) {
+    res.json(resultados);
+  } else {
+    res.status(404).send('No se encontró el campeón');
+  }
+});
+
   
 
   
