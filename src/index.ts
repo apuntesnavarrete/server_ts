@@ -1,5 +1,7 @@
 import express from 'express';
 import campeones from './routes/campeones'
+import jornadas from './routes/Jornadas'
+
 const path = require('path');
 
 
@@ -12,6 +14,9 @@ const app = express();
 const port = 3007;
 
 app.use('/', campeones)
+
+app.use('/', jornadas)
+
 
 app.get('/', (_req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
