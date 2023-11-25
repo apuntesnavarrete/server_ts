@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const mysql = require('mysql2');
 import path from 'path';
 
@@ -9,7 +10,7 @@ dotenv.config({ path: envPath });
 const setupModels = require('../db/models/user.model')
 */
 
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
   host     : process.env.HOST,
        user     : process.env.DB_USER,
        password : process.env.DB_PASSWORD,
