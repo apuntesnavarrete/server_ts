@@ -18,7 +18,7 @@ POST http://localhost:3007/api/admin/Jugadores HTTP/1.1
 Content-Type: application/json
 
 {
-    "Id" : 1234,
+   
     "Nombre" : "Jorge Barraza",
     "Curp" : "Nare920824"
 
